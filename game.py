@@ -1,10 +1,12 @@
 import random
 
+
 class Game:
-    def __init__(self):
-        self.number = random.randint(0, 1000)
+    def __init__(self, low: int, high: int):
+        self.number = random.randint(low, high)
 
     def guess(self, n: int):
         return 1 if n > self.number else (-1 if n < self.number else 0)
-
-    dfe
+    
+    def reset(self, low:int, high:int):
+        self.number = random.randint(low, high)
