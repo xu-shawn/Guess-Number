@@ -1,4 +1,4 @@
-"""Module providing a function to generate random numbers"""
+"""Module providing a number guessing game"""
 import random
 
 
