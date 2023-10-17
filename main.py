@@ -19,7 +19,7 @@ num = int(input("Please enter a number to guess: "))
 
 while game.guess(num) != 0:
 
-    if (game.guess(num) == -1):
+    if game.guess(num) == -1:
         print("You guessed too low!")
 
     else:
