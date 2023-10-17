@@ -1,3 +1,6 @@
+import game
+game = game.Game()
+
 print("Welcome to the guessing game!")
 num=int(input("Please enter a number: "))
 while game.guess(num)!=1:
