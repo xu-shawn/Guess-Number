@@ -21,7 +21,8 @@ def main() -> None:
     r = input_integer("Please enter the upper bound: ")
 
     while r < l:
-        r = input_integer("Upper bound must be greater or equal to lower bound! Try again.\nPlease enter the upper bound: ")
+        r = input_integer("Upper bound must be greater or equal to lower bound! Try again."+
+                          "\nPlease enter the upper bound: ")
 
     num = input_integer("Please enter a number to guess: ")
 
