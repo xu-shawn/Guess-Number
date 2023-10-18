@@ -11,21 +11,21 @@ class Game:
         self.start_time = time.time()
 
     def guess(self, n: int) -> int:
-        """Function to check if a guess is correct"""
+        """Checks if a guess is correct"""
         return 1 if n > self.number else (-1 if n < self.number else 0)
 
     def get_time(self) -> float:
-        """Function to get the number of seconds that has elapsed since the last reset"""
+        """Get the number of seconds that has elapsed since the last reset"""
         return time.time() - self.start_time
 
     def reset(self, low: int, high: int) -> None:
-        """Function to reset the number to be guessed"""
+        """Resets the class to its initial state"""
         self.number = random.randint(low, high)
         self.start_time = time.time()
 
     @staticmethod
     def welcome() -> None:
-        """Function to print a welcome message"""
+        """Prints a welcome message"""
         print(r"__        __   _                            _          _   _            ")
         print(r"\ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___   | |_| |__   ___   ")
         print(r" \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \  | __| '_ \ / _ \  ")
