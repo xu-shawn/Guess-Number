@@ -1,5 +1,6 @@
 """Module to provide a text interface to the number guessing game"""
 from game import Game
+from player import Player
 
 
 def input_integer(message: str, warning: str = "Please enter a valid integer. Try again.") -> int:
@@ -13,8 +14,8 @@ def input_integer(message: str, warning: str = "Please enter a valid integer. Tr
     return number
 
 
-def main() -> None:
-    """Main function"""
+def play() -> None:
+    """User guesses the computer's number"""
     Game.welcome()
 
     left = input_integer("Please enter the lower bound: ")
@@ -47,6 +48,17 @@ def main() -> None:
     print("Took", round(game.get_time(), 2), "seconds")
     print("Took", count, "tries")
 
+def guess() -> None:
+    """Computer guesses the user's number"""
+    player = Player()
+    while not player.game_ended:
+        print(f"Computer guessed {player.get_guess()}. (-1/0/1)\nDebug: {player.min} <= {player.get_guess()} <= {player.max}")
+        if not player.update(int(input())):
+            print("You lied!")
+
+def main():
+    """Main function"""
+    guess()
 
 if __name__ == "__main__":
     main()
