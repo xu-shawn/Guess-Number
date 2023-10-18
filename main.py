@@ -21,8 +21,8 @@ def main() -> None:
     r = input_integer("Please enter the upper bound: ")
 
     while r < l:
-        r = input_integer("Upper bound must be greater or equal to lower bound! Try again." +
-                          "\nPlease enter the upper bound: ")
+        r = input_integer("Upper bound must be greater or equal to lower bound! Try again.\
+                          \nPlease enter the upper bound: ")
 
     num = input_integer("Please enter a number to guess: ")
 
@@ -30,6 +30,11 @@ def main() -> None:
     count: int = 1
 
     while game.guess(num) != 0:
+        if count == 5:
+            print("You already guessed 5 times! keep going!")
+        elif count == 10:
+            print("You already guessed 10 times! you are getting there!")
+
         if game.guess(num) == -1:
             print("You guessed too low!")
         else:
@@ -37,12 +42,6 @@ def main() -> None:
 
         count += 1
         num = input_integer("Please enter a number to guess: ")
-
-        if count == 5:
-            print("You already guessed 5 times! keep going!")
-
-        if count == 10:
-            print("You already guessed 10 times! you are getting there!")
 
     print("You won!")
     print("Took", round(game.get_time(), 2), "seconds")
