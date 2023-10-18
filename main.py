@@ -37,9 +37,9 @@ def main() -> None:
         count += 1
         num = input_integer("Please enter a number to guess: ")
 
-    print("You win the game!")
-    print("Time taken: ", round(game.get_time(), 2), " seconds")
-    print("Number of guesses: ", count)
+    print("You won!")
+    print("Took", round(game.get_time(), 2), "seconds")
+    print("Took", count, "tries")
 
 
 if __name__ == "__main__":
