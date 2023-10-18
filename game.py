@@ -15,7 +15,7 @@ class Game:
         return 1 if n > self.number else (-1 if n < self.number else 0)
 
     def get_time(self) -> float:
-        """Function to get the number of seconds that has elapsed since the game begun"""
+        """Function to get the number of seconds that has elapsed since the last reset"""
         return time.time() - self.start_time
 
     def reset(self, low: int, high: int) -> None:
