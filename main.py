@@ -2,8 +2,7 @@
 from game import Game
 
 
-def input_integer(message: str, warning: str
-                  = "Please enter a valid integer. Try again.") -> int:
+def input_integer(message: str, warning: str = "Please enter a valid integer. Try again.") -> int:
     """Safely read input and parse into integers"""
     while True:
         try:
@@ -22,8 +21,8 @@ def main() -> None:
     right = input_integer("Please enter the upper bound: ")
 
     while right < left:
-        right = input_integer("Upper bound must be greater or equal to\
-        lower bound! Try again.\nPlease enter the upper bound: ")
+        right = input_integer("Upper bound must be greater or equal to lower bound! Try again.\
+        \nPlease enter the upper bound: ")
 
     num = input_integer("Please enter a number to guess: ")
 
