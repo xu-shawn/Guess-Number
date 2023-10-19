@@ -16,8 +16,6 @@ def input_integer(message: str, warning: str = "Please enter a valid integer. Tr
 
 def play() -> None:
     """User guesses the computer's number"""
-    Game.welcome()
-
     left = input_integer("Please enter the lower bound: ")
     right = input_integer("Please enter the upper bound: ")
 
@@ -51,7 +49,6 @@ def play() -> None:
 
 def guess() -> None:
     """Computer guesses the user's number"""
-    Game.welcome()
     player = Player()
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
@@ -64,7 +61,7 @@ def guess() -> None:
 
 def menu() -> None:
     """Display menu and handle user input"""
-    print("Welcome to the number guessing game!")
+    Game.welcome()
     print("1. Play the game")
     print("2. Let the computer guess your number")
     print("3. Exit")
