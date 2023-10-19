@@ -50,6 +50,7 @@ def play() -> None:
 
 def guess() -> None:
     """Computer guesses the user's number"""
+    Game.welcome()
     player = Player()
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)\nDebug: {player.min} <= {player.get_guess()} <= {player.max}")
