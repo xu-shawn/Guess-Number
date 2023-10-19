@@ -53,10 +53,10 @@ def guess() -> None:
     player = Player()
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
-        print("Enter -1 if the answer is too low")
+        print("Enter 1 if the answer is too low")
         print("Enter 0 if the answer is correct")
-        print("Enter 1 if the answer is too high")
-        if not player.update(input_integer("Your answer: ")):
+        print("Enter -1 if the answer is too high")
+        if not player.update(-input_integer("Your answer: ")):
             print("Are you sure? I think you made a mistake somewhere.")
             player.min = input_integer("Please enter lower bound: ")
             player.max = input_integer("Please enter upper bound: ")
