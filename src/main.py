@@ -48,6 +48,7 @@ def play() -> None:
     print("Took", round(game.get_time(), 2), "seconds")
     print("Took", count, "tries")
 
+
 def guess() -> None:
     """Computer guesses the user's number"""
     Game.welcome()
@@ -59,6 +60,8 @@ def guess() -> None:
         print("Enter 1 if the guess is too high")
         if not player.update(input_integer("Your answer:")):
             print("You sure? I think you made a mistake somewhere.")
+
+
 def menu() -> None:
     """Display menu and handle user input"""
     print("Welcome to the number guessing game!")
@@ -78,9 +81,12 @@ def menu() -> None:
             break
         else:
             print("Invalid choice! Try again.")
+
+
 def main():
     """Main function"""
     menu()
+
 
 if __name__ == "__main__":
     main()
