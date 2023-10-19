@@ -53,8 +53,11 @@ def guess() -> None:
     Game.welcome()
     player = Player()
     while not player.game_ended:
-        print(f"Computer guessed {player.get_guess()}. (-1/0/1)\nDebug: {player.min} <= {player.get_guess()} <= {player.max}")
-        if not player.update(int(input())):
+        print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
+        print("Enter -1 if the guess is too low")
+        print("Enter 0 if the guess is correct")
+        print("Enter 1 if the guess is too high")
+        if not player.update(input_integer("Your answer:")):
             print("You lied!")
 def menu() -> None:
     """Display menu and handle user input"""
