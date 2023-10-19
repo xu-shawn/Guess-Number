@@ -4,11 +4,11 @@
 class Player:
     """Class representing a player"""
     def __init__(self) -> None:
-        self.max = None
-        self.min = None
-        self.extreme = None
-        self.last_guess = None
-        self.game_ended = False
+        self.max: int = None
+        self.min: int = None
+        self.extreme: int = None
+        self.last_guess: int = None
+        self.game_ended: bool = False
 
     def get_guess(self) -> int:
         """Returns the optimal guess using known information."""
