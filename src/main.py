@@ -52,11 +52,19 @@ def guess() -> None:
     player = Player()
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
-        print("Enter -1 if the guess is too low")
-        print("Enter 0 if the guess is correct")
-        print("Enter 1 if the guess is too high")
-        if not player.update(input_integer("Your answer:")):
+        print("Enter -1 if the answer is too low")
+        print("Enter 0 if the answer is correct")
+        print("Enter 1 if the answer is too high")
+        if not player.update(input_integer("Your answer: ")):
             print("Are you sure? I think you made a mistake somewhere.")
+            player.min = input_integer("Please re-enter lower bound: ")
+            player.max = input_integer("Please re-enter upper bound: ")
+
+            while player.min > player.max:
+                print("Please make sure that the bounds are valid!")
+                player.min = input_integer("Please re-enter lower bound: ")
+                player.max = input_integer("Please re-enter upper bound: ")
+
 
 
 def menu() -> None:
