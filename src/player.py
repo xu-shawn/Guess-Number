@@ -19,7 +19,7 @@ class Player:
         if self.min is None or self.max is None:
             self.last_guess = self.extreme
             return self.last_guess
-        
+
         self.last_guess = (self.max + self.min) // 2
         return self.last_guess
 
