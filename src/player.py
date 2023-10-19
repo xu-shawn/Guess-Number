@@ -15,12 +15,13 @@ class Player:
         if self.extreme is None:
             self.last_guess = 0
             return 0
-        elif self.min is None or self.max is None:
+
+        if self.min is None or self.max is None:
             self.last_guess = self.extreme
             return self.last_guess
-        else:
-            self.last_guess = (self.max + self.min) // 2
-            return self.last_guess
+        
+        self.last_guess = (self.max + self.min) // 2
+        return self.last_guess
 
     def update(self, result: int) -> bool:
         """Updates the player using the result of the last guess
@@ -47,16 +48,20 @@ class Player:
         if self.extreme is None:
             self.extreme = 1
             self.min = 1
+
         elif self.min is None or self.max is None:
             if self.extreme < 0:
                 self.min = self.last_guess + 1
+
             else:
                 self.min = self.extreme + 1
                 self.extreme = self.extreme * 2
+
         else:
             if self.last_guess >= self.max:
                 return False
             self.min = self.last_guess + 1
+
         return True
 
     def _update_positive(self) -> bool:
@@ -64,16 +69,19 @@ class Player:
         if self.extreme is None:
             self.extreme = -1
             self.max = -1
+
         elif self.min is None or self.max is None:
             if self.extreme < 0:
                 self.max = self.extreme - 1
                 self.extreme *= 2
             else:
                 self.max = self.last_guess - 1
+
         else:
             if self.last_guess <= self.min:
                 return False
             self.max = self.last_guess - 1
+
         return True
 
     def gameover(self) -> None:
