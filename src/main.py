@@ -1,4 +1,5 @@
 """Module to provide a text interface to the number guessing game"""
+import os
 from game import Game
 from player import Player
 
@@ -57,8 +58,8 @@ def guess() -> None:
         print("Enter 1 if the answer is too high")
         if not player.update(input_integer("Your answer: ")):
             print("Are you sure? I think you made a mistake somewhere.")
-            player.min = input_integer("Please re-enter lower bound: ")
-            player.max = input_integer("Please re-enter upper bound: ")
+            player.min = input_integer("Please enter lower bound: ")
+            player.max = input_integer("Please enter upper bound: ")
 
             while player.min > player.max:
                 print("Please make sure that the bounds are valid!")
@@ -69,23 +70,34 @@ def guess() -> None:
 
 def menu() -> None:
     """Display menu and handle user input"""
-    Game.welcome()
-    print("1. Play the game")
-    print("2. Let the computer guess your number")
-    print("3. Exit")
-
     while True:
+        Game.welcome()
+        print("1. Play the game")
+        print("2. Let the computer guess your number")
+        print("3. Exit")
+
         choice = input_integer("Please enter your choice: ")
+
         if choice == 1:
+            os.system("clear")
             play()
-            break
-        elif choice == 2:
+            input("Press Enter to continue...")
+            os.system("clear")
+            continue
+
+        if choice == 2:
+            os.system("clear")
             guess()
+            input("Press Enter to continue...")
+            os.system("clear")
+            continue
+
+        if choice == 3:
             break
-        elif choice == 3:
-            break
-        else:
-            print("Invalid choice! Try again.")
+
+        os.system("clear")
+        print("Invalid choice! Try again.")
+        input("Press Enter to continue...")
 
 
 def main():
