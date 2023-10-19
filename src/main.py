@@ -55,10 +55,28 @@ def guess() -> None:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)\nDebug: {player.min} <= {player.get_guess()} <= {player.max}")
         if not player.update(int(input())):
             print("You lied!")
+def menu() -> None:
+    """Display menu and handle user input"""
+    print("Welcome to the number guessing game!")
+    print("1. Play the game")
+    print("2. Let the computer guess your number")
+    print("3. Exit")
 
+    while True:
+        choice = input_integer("Please enter your choice: ")
+        if choice == 1:
+            play()
+            break
+        elif choice == 2:
+            guess()
+            break
+        elif choice == 3:
+            break
+        else:
+            print("Invalid choice! Try again.")
 def main():
     """Main function"""
-    guess()
+    menu()
 
 if __name__ == "__main__":
     main()
