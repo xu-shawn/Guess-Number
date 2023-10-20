@@ -64,7 +64,7 @@ def guess() -> None:
             player.max = input_integer("Please enter upper bound: ")
 
             while player.min > player.max:
-                print("Please make sure that the bounds are valid!")               
+                print("Please make sure that the bounds are valid!")
                 player.min = input_integer("Please re-enter lower bound: ")
                 player.max = input_integer("Please re-enter upper bound: ")
     print(f"Took {count} tries" if count != 1 else "Took 1 try")

@@ -33,7 +33,6 @@ class Player:
         Returns:
             A boolean value indicating the validity of the result
         """
-
         if result < 0:
             return self._update_negative()
 
