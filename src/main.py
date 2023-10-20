@@ -31,9 +31,9 @@ def play() -> None:
 
     while game.guess(num) != 0:
         if count == 5:
-            print("You already guessed 5 times! keep going!")
+            print("You've already guessed 5 times! keep going!")
         elif count == 10:
-            print("You already guessed 10 times! you are getting there!")
+            print("You've already guessed 10 times! you are getting there!")
 
         if game.guess(num) == -1:
             print("You guessed too low!")
