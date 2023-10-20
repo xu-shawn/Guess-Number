@@ -44,15 +44,17 @@ def play() -> None:
         num = input_integer("Please enter a number to guess: ")
 
     print("You won!")
-    print("Took", round(game.get_time(), 2), "seconds")
-    print("Took", count, "tries")
+    print(f"Took {round(game.get_time(), 2)} seconds")
+    print(f"Took {count} tries")
 
 
 def guess() -> None:
     """Computer guesses the user's number"""
     player = Player()
+    count: int = 0
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
+        count += 1
         print("Enter 1 if the answer is too low")
         print("Enter 0 if the answer is correct")
         print("Enter -1 if the answer is too high")
@@ -62,9 +64,10 @@ def guess() -> None:
             player.max = input_integer("Please enter upper bound: ")
 
             while player.min > player.max:
-                print("Please make sure that the bounds are valid!")
+                print("Please make sure that the bounds are valid!")               
                 player.min = input_integer("Please re-enter lower bound: ")
                 player.max = input_integer("Please re-enter upper bound: ")
+    print(f"Took {count} tries" if count != 1 else "Took 1 try")
 
 
 
