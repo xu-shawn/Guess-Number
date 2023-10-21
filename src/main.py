@@ -52,6 +52,7 @@ def guess() -> None:
     """Computer guesses the user's number"""
     player = Player()
     count: int = 0
+
     while not player.game_ended:
         print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
         count += 1
@@ -67,6 +68,7 @@ def guess() -> None:
                 print("Please make sure that the bounds are valid!")
                 player.min = input_integer("Please re-enter lower bound: ")
                 player.max = input_integer("Please re-enter upper bound: ")
+
     print(f"Took {count} tries" if count != 1 else "Took 1 try")
 
 
