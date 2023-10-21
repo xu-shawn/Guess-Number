@@ -24,9 +24,9 @@ def play() -> None:
         right = input_integer("Upper bound must be greater or equal to lower bound! Try again.\
         \nPlease enter the upper bound: ")
 
-    num = input_integer("Please enter a number to guess: ")
-
     game = Game(left, right)
+
+    num = input_integer("Please enter a number to guess: ")
     count: int = 1
 
     while game.guess(num) != 0:
@@ -44,7 +44,7 @@ def play() -> None:
         num = input_integer("Please enter a number to guess: ")
 
     print("You won!")
-    print(f"Took {round(game.get_time(), 2)} seconds")
+    print(f"Took {game.get_time():.2f} seconds")
     print(f"Took {count} tries")
 
 
