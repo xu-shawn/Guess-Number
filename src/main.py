@@ -2,6 +2,7 @@
 import os
 from game import Game
 from player import Player
+import simplenlp
 
 
 def input_integer(message: str, warning: str = "Please enter a valid integer. Try again.") -> int:
@@ -54,12 +55,30 @@ def guess() -> None:
     count: int = 0
 
     while not player.game_ended:
-        print(f"Computer guessed {player.get_guess()}. (-1/0/1)")
+        print(f"Computer guessed {player.get_guess()}.")
         count += 1
-        print("Enter 1 if the answer is too low")
-        print("Enter 0 if the answer is correct")
-        print("Enter -1 if the answer is too high")
-        if not player.update(-input_integer("Your answer: ")):
+        conflicting = False
+
+        while True:
+            player_response = input("Is the number too high, too low, or correct?\n> ")
+            correct, too_low, too_high, conflicting = simplenlp.analyze_input(player_response)
+
+            if correct:
+                code = 0
+            elif too_low:
+                code = -1
+            elif too_high:
+                code = 1
+            else:
+                print("Sorry, I don't quite understand. Could you try a different word?")
+                continue
+
+            if not conflicting:
+                break
+
+            print("Sorry, this is too confusing. Could you simplify your language?")
+
+        if not player.update(code):
             print("Are you sure? I think you made a mistake somewhere.")
             player.min = input_integer("Please enter lower bound: ")
             player.max = input_integer("Please enter upper bound: ")
