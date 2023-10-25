@@ -11,3 +11,5 @@
 - [x] Add a starting menu
 
 - [x] Sometimes provide different feedback or random comments to keep the game interesting.
+
+- [x] Use natural language processing to interpret user input
