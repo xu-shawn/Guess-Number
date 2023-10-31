@@ -15,6 +15,20 @@ def input_integer(message: str, warning: str = "Please enter a valid integer. Tr
             print(warning)
     return number
 
+def prompt_user(message: str, warning: str = "Invalid input, please try again.",
+                default_yes: bool = False) -> bool:
+    """Prompts the user for confirmation"""
+    while True:
+        answer = input(message).lower()
+
+        if answer in ["y", "yes"] or (answer == "" and default_yes):
+            return True
+
+        if answer in ["n", "no"]:
+            return False
+
+        print(warning)
+
 
 def play() -> None:
     """User guesses the computer's number"""
@@ -74,7 +88,10 @@ def guess() -> None:
                 continue
 
             if not conflicting:
-                break
+                if prompt_user("The number is " + ['too low', 'correct', 'too high'][code + 1]
+                               + ", right? [Y/n] ", default_yes = True):
+                    break
+                continue
 
             print("Sorry, this is too confusing. Could you simplify your language?")
 
